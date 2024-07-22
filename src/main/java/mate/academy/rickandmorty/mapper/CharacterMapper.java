@@ -11,9 +11,9 @@ import org.mapstruct.Mapper;
 public interface CharacterMapper {
     CharacterDto toDto(CharacterFromApi characterFromApi);
 
-    CharacterFromApi toModel(CharacterDataDto characterDataDto);
-
     CharacterDto toDto(Character character);
+
+    CharacterFromApi toModel(CharacterDataDto characterDataDto);
 
     Character toModel(CharacterDto characterDto);
 
