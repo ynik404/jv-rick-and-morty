@@ -13,7 +13,7 @@ import lombok.Setter;
 @Table(name = "characters_from_api")
 public class CharacterFromApi {
     @Id
-    @Column(name = "external_id")
+    @Column(nullable = false, unique = true)
     private Long externalId;
     private String name;
     private String status;

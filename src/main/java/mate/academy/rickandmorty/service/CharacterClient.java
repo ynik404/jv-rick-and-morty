@@ -11,16 +11,18 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.rickandmorty.dto.external.CharacterDataDto;
 import mate.academy.rickandmorty.dto.external.CharacterResponseDataDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
 public class CharacterClient {
-    private static final String BASE_URL = "https://rickandmortyapi.com/api/character";
+    @Value("${mate.academy.base_url}")
+    private String baseUrl;
     private final ObjectMapper objectMapper;
 
     public List<CharacterDataDto> getCharactersFromDb() {
-        String url = BASE_URL;
+        String url = baseUrl;
         List<CharacterDataDto> characterList = new ArrayList<>();
 
         HttpClient httpClient = HttpClient.newHttpClient();
